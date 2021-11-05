@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1= title
+  div(class="container-fluid")
+        div(class="row")
+            -
+                let Lion = [
+                    {
+                        "name": "Sanjay",
+                        "age": 5,
+                        "weight": 30
+                    },
+                    {
+                        "name": "harsha",
+                        "age": 6,
+                        "weight": 25
+                    },
+                    {
+                        "name": "pranay",
+                        "age": 8,
+                        "weight": 40
+                    },                   
+                ]
+            each v,index in Lion 
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.name} #{v.age} #{v.weight}
+  script.                
+        function buy(intemNo)
+        {
+              alert(`you purchased Item ${intemNo+1}`)
+        }
