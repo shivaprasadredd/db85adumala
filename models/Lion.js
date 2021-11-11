@@ -1,8 +1,8 @@
 const mongoose = require("mongoose") 
 const LionSchema = mongoose.Schema({ 
- Lion_type: String, 
- size: String, 
- cost: Number 
+ name: String, 
+ age: Number, 
+ weight: Number 
 }) 
  
 module.exports = mongoose.model("Lion", 
