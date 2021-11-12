@@ -4,7 +4,7 @@ var Lion = require('../models/Lion');
 // List of all Lion
 exports.Lion_list = async function(req, res) { 
     try{ 
-        theLion = await Lion.find(); 
+        theLion= await Lion.find(); 
         res.send(theLion); 
     } 
     catch(err){ 
@@ -12,10 +12,16 @@ exports.Lion_list = async function(req, res) {
         res.send(`{"error": ${err}}`); 
     }   
 }; 
- 
 // for a specific Lion. 
-exports.Lion_detail = function(req, res) { 
-    res.send('NOT IMPLEMENTED: Lion detail: ' + req.params.id); 
+exports.Lion_detail = async function(req, res) { 
+    console.log("detail"  + req.params.id) 
+    try { 
+        result = await Lion.findById( req.params.id) 
+        res.send(result) 
+    } catch (error) { 
+        res.status(500) 
+        res.send(`{"error": document for id ${req.params.id} not found`); 
+    } 
 }; 
  
 // Handle Lion create on POST. 
