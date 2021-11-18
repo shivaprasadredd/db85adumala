@@ -1,0 +1,34 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  form(id='LionForm', action="/resource/Lioncreate", method="POST") 
+    div.form-group 
+        label.LionAttr(for='name') Lion name 
+        input#name(type='text', name='name') 
+    div.form-group 
+        label.LionAttr(for='age') Lion age 
+        input#age(type='number', name='age') 
+    div.form-group 
+        label.LionAttr(for='weight') Lion weight 
+        input#weight(type='number', name='weight') 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['LionForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'POST', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.text(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Save succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Save failed " + error ) 
+      }); 
+    });

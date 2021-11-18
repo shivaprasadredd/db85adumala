@@ -1,0 +1,24 @@
+extends layout 
+ 
+block content 
+  h1= title 
+  if (toShow == null) 
+    h2 No instance to show 
+  else 
+    - let Lionid = toShow._id 
+    - let name = toShow.name 
+    - let weight = toShow.weight 
+    - let age = toShow.age 
+    div 
+      div.row 
+        div(class='LionAttr mr-3') Lion ID is: 
+        div #{Lionid} 
+      div.row 
+        div(class='LionAttr mr-3') Lion name is: 
+        div #{name} 
+      div.row 
+        div(class='LionAttr mr-3') Lion age is: 
+        div #{age} 
+      div.row 
+        div(class='LionAttr mr-3') Lion weight is: 
+        div #{weight}
