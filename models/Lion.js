@@ -5,5 +5,4 @@ const LionSchema = mongoose.Schema({
  weight: Number 
 }) 
  
-module.exports = mongoose.model("Lion", 
-LionSchema) 
+module.exports = mongoose.model("Lion", LionSchema) 

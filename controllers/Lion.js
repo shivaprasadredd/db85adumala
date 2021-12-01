@@ -1,5 +1,5 @@
 
-var Lion = require('../models/Lion'); 
+var Lion = require('../models/Lion')
  
 // List of all Lion
 exports.Lion_list = async function(req, res) { 
